@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 7fef5983827df2b4f9769ea939ebc860
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _floorTilePrefab: {fileID: 7585206309324117318, guid: fe0b6df79840588449e41095409697d5, type: 3}
+  - _generatedRoot: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
