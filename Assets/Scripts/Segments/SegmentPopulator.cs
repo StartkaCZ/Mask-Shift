@@ -65,19 +65,9 @@ public class SegmentPopulator : MonoBehaviour
                 {
                     Spawn(pattern.coinPrefab, contentRoot, x, z);
                 }
-                else if (token == '>' || token == '<')
+                else if (token == 'V')
                 {
                     var trap = Spawn(pattern.trapPrefab, contentRoot, x, z);
-
-                    // Configure direction if your trap script supports it
-                    if (trap.TryGetComponent<ShootingTrapHorizontal>(out var trapScript))
-                    {
-                        // Right = +X, Left = -X
-                        if (token == '>')
-                            trapScript.SetDirection(Vector3.right);
-                        else
-                            trapScript.SetDirection(Vector3.left);
-                    }
                 }
                 else if (token == 'G')
                 {

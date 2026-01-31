@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7311789434896992458}
   - component: {fileID: 4410155174486498098}
   - component: {fileID: 4884154005438737307}
+  - component: {fileID: 2461652601850640140}
   m_Layer: 0
   m_Name: PF_Obstacle
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,3 +113,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2461652601850640140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861911103228178003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0d3243e4b7999468d2e17aa5cd9d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hazard
+  type: 0
+  pointsOnNeutralise: 30

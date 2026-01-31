@@ -25,8 +25,8 @@ public class PatternSO : ScriptableObject
     public string           lane2 = "..........";
 
     [Header("Legend (characters)")]
-    [Tooltip("O = obstacle, C = coin, > = trap shoots right, < = trap shoots left, . = empty floor, G = hole (removed floor)")]
-    public string           legend = "O obstacle | C coin | > trap right | < trap left | G hole | . empty floor";
+    [Tooltip("O = obstacle, C = coin, V = shooting trap, . = empty floor, G = hole (removed floor)")]
+    public string           legend = "O obstacle | C coin | V shooting trap | G hole | . empty floor";
 
     [Header("Prefabs")]
     public GameObject       obstaclePrefab;

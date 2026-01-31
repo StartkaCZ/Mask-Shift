@@ -106,9 +106,10 @@ GameObject:
   - component: {fileID: 5708918064573118628}
   - component: {fileID: 6608528630374304892}
   - component: {fileID: 1848339205576175075}
+  - component: {fileID: 1535458756191853258}
   m_Layer: 0
   m_Name: PF_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,3 +290,15 @@ MonoBehaviour:
   _featherMat: {fileID: 2100000, guid: 7f5e77a359d20594fa244dffad5971d0, type: 2}
   _mirrorMat: {fileID: 2100000, guid: b178996140c20a9469b1e51779860659, type: 2}
   _oracleMat: {fileID: 2100000, guid: f6a2ff7d03a2e5e4da9a5a2d933598fd, type: 2}
+--- !u!114 &1535458756191853258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394211559303228710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddebc9620fa1bd84da6217138703a35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisionHandler

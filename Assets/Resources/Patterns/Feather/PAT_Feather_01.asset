@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335d6ddab67e3bf4684e084af7397739, type: 3}
   m_Name: PAT_Feather_01
   m_EditorClassIdentifier: Assembly-CSharp::PatternSO
-  group: 3
+  group: 1
   lane0: ..........
   lane1: ..........
   lane2: ..........
-  legend: O obstacle | C coin | > trap right | < trap left | G hole | . empty floor
+  legend: O obstacle | C coin | V shooting trap | G hole | . empty floor
   obstaclePrefab: {fileID: 4861911103228178003, guid: 90ce129924ea14f46985e25e8239ea67, type: 3}
   coinPrefab: {fileID: 5812127742241766519, guid: 2982d217e0f75be46a51c9bd59f44f7a, type: 3}
   trapPrefab: {fileID: 4121165851655331476, guid: a52af4cac3355d8419789799f28069e0, type: 3}

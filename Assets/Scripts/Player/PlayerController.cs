@@ -1,9 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class RunnerPlayerController : MonoBehaviour
 {
+    [Header("Mask Effects")]
+    [SerializeField] float  _featherHoverSpeed = 20f;
+
     [Header("Lane Settings")]
     [SerializeField] int    _lanes = 3;
     [SerializeField] float  _laneStep = 2.1f;            // MUST match LaneGrid x-step
@@ -14,9 +18,10 @@ public class RunnerPlayerController : MonoBehaviour
     [SerializeField] float  _gravity = -25f;
 
     [Header("Forward (optional for now)")]
-    [SerializeField] float  _forwardSpeed = 0f;          // set >0 later for runner feel
+    [SerializeField] float  _forwardSpeed = 10f;          // set >0 later for runner feel
 
     CharacterController     _controller;
+    MaskController          _mask;
 
     int                     _currentLane = 1;           // for 3 lanes: 0,1,2 => start in centre
     float                   _verticalVelocity;
@@ -29,6 +34,7 @@ public class RunnerPlayerController : MonoBehaviour
     void Awake()
     {
         _controller = GetComponent<CharacterController>();
+        _mask = GetComponent<MaskController>();
         _currentLane = Mathf.Clamp(_currentLane, 0, _lanes - 1);
     }
 
@@ -41,7 +47,9 @@ public class RunnerPlayerController : MonoBehaviour
 
         // Smoothly move towards target lane X
         float currentX = transform.position.x;
-        float newX = Mathf.MoveTowards(currentX, targetX, _laneSwitchSpeed * Time.deltaTime);
+        float newX = Mathf.MoveTowards(currentX, 
+                                       targetX, 
+                                       _laneSwitchSpeed * Time.deltaTime);
         float deltaX = newX - currentX;
 
         // Gravity and jumping
@@ -50,7 +58,12 @@ public class RunnerPlayerController : MonoBehaviour
 
         _verticalVelocity += _gravity * Time.deltaTime;
 
-        Vector3 move = new Vector3(deltaX, _verticalVelocity * Time.deltaTime, _forwardSpeed * Time.deltaTime);
+        float speed = _mask.CurrentMask == MaskType.Feather ? 
+                            _featherHoverSpeed : _forwardSpeed;
+
+        Vector3 move = new Vector3(deltaX, 
+                                   _verticalVelocity * Time.deltaTime, 
+                                   speed * Time.deltaTime);
         _controller.Move(move);
 
         // Reset "held" state when stick/keys return to neutral
@@ -63,7 +76,6 @@ public class RunnerPlayerController : MonoBehaviour
     public void OnMove(InputValue value)
     {
         Vector2 moveValue = value.Get<Vector2>();
-        Debug.Log($"Move input: {moveValue}");
         _moveXRaw = moveValue.x;
 
         if (_moveHeld) return;
@@ -84,8 +96,12 @@ public class RunnerPlayerController : MonoBehaviour
     // Called automatically by PlayerInput (Send Messages) for the "Jump" action
     public void OnJump(InputValue value)
     {
+        if (_mask != null && 
+            (_mask.CurrentMask == MaskType.Stone || 
+             _mask.CurrentMask == MaskType.Feather))
+            return;
+
         if (!value.isPressed) return;
-        Debug.Log("Jump pressed");
 
         if (_controller.isGrounded)
         {
