@@ -266,8 +266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootingTrapHorizontal
   _projectilePrefab: {fileID: 1801267423773919799, guid: 976f64e0bcb6b5d4086779b743068363, type: 3}
   _firePoint: {fileID: 8122386800465459091}
-  _fireInterval: 1.2
-  _projectileSpeed: 10
+  _fireInterval: 0.6
+  _projectileSpeed: 8
 --- !u!1 &8489844652998902383
 GameObject:
   m_ObjectHideFlags: 0
