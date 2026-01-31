@@ -2018,13 +2018,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831979934}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 6, z: -10}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 3, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &831979938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,7 +2082,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowCamera
   _target: {fileID: 680826334}
-  _offset: {x: 0, y: 6, z: -10}
+  _offset: {x: 0, y: 3, z: -4}
+  _targetOffset: {x: 0, y: 0, z: 1}
   _followSpeed: 8
 --- !u!1 &837701347
 GameObject:
@@ -2482,7 +2483,7 @@ MonoBehaviour:
   _segmentsRoot: {fileID: 1178741636}
   _segmentCells: 10
   _cellSpacing: 2.1
-  _segmentsAhead: 2
+  _segmentsAhead: 3
   _segmentsBehind: 1
   _bootstrapFromScene: 1
 --- !u!4 &1178741636
@@ -4713,12 +4714,20 @@ PrefabInstance:
       value: PF_Player
       objectReference: {fileID: 0}
     - target: {fileID: 5708918064573118628, guid: f985a98115c9d1f4f95fdcd17678b8ef, type: 3}
+      propertyPath: _gravity
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708918064573118628, guid: f985a98115c9d1f4f95fdcd17678b8ef, type: 3}
+      propertyPath: _jumpHeight
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708918064573118628, guid: f985a98115c9d1f4f95fdcd17678b8ef, type: 3}
       propertyPath: _forwardSpeed
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5708918064573118628, guid: f985a98115c9d1f4f95fdcd17678b8ef, type: 3}
       propertyPath: _featherHoverSpeed
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5727570711893381164, guid: f985a98115c9d1f4f95fdcd17678b8ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4759,6 +4768,10 @@ PrefabInstance:
     - target: {fileID: 5727570711893381164, guid: f985a98115c9d1f4f95fdcd17678b8ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6608528630374304892, guid: f985a98115c9d1f4f95fdcd17678b8ef, type: 3}
+      propertyPath: _currentMask
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
