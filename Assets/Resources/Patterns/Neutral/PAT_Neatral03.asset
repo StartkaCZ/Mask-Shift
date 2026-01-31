@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 335d6ddab67e3bf4684e084af7397739, type: 3}
-  m_Name: PAT_Neutral_02
+  m_Name: PAT_Neatral03
   m_EditorClassIdentifier: Assembly-CSharp::PatternSO
   group: 3
-  lane0: ..O.OO.O..
-  lane1: ..CC..CC..
-  lane2: ..O.OO.O..
+  lane0: ..........
+  lane1: ..........
+  lane2: ..........
   legend: O obstacle | C coin | > trap right | < trap left | G hole | . empty floor
   obstaclePrefab: {fileID: 4861911103228178003, guid: 90ce129924ea14f46985e25e8239ea67, type: 3}
   coinPrefab: {fileID: 5812127742241766519, guid: 2982d217e0f75be46a51c9bd59f44f7a, type: 3}
