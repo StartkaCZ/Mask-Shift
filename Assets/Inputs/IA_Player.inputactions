@@ -23,6 +23,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MaskStone",
+                    "type": "Button",
+                    "id": "b4549fa1-6aa4-45bd-b58a-46e1cda8a4d7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MaskFeather",
+                    "type": "Button",
+                    "id": "aa6dbef0-2fc5-405c-a8e9-00aae1dd859a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MaskMirror",
+                    "type": "Button",
+                    "id": "d53ce6c6-9f89-40e8-8133-0c196938f7c9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MaskOracle",
+                    "type": "Button",
+                    "id": "e5f3b207-36dc-46e8-99c5-d6227e903185",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -221,6 +257,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "399807d4-b90d-44c8-a9a8-4dee0856a548",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MaskStone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e9e365d-e217-412f-8f8b-36d1e81c0d15",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MaskFeather",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f7711d31-b14e-47b7-9bda-2a7fbb3c525d",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MaskMirror",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86c5adae-2f1a-4831-866a-3cd7c3462ae0",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MaskOracle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

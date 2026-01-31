@@ -70,8 +70,7 @@ public class SegmentPopulator : MonoBehaviour
                     var trap = Spawn(pattern.trapPrefab, contentRoot, x, z);
 
                     // Configure direction if your trap script supports it
-                    var trapScript = trap.GetComponent<ShootingTrapHorizontal>();
-                    if (trapScript != null)
+                    if (trap.TryGetComponent<ShootingTrapHorizontal>(out var trapScript))
                     {
                         // Right = +X, Left = -X
                         if (token == '>')
