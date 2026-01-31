@@ -52,4 +52,17 @@ public class ShootingTrapHorizontal : MonoBehaviour
             go.transform.position += _direction.normalized * _projectileSpeed * Time.deltaTime;
         }
     }
+
+
+    public void SetDirection(Vector3 dir)
+    {
+        _direction = dir;
+
+        if (_direction == Vector3.right)
+            transform.localEulerAngles = Vector3.zero;
+        else
+        {
+            transform.GetChild(0).localEulerAngles = new Vector3(0, 180, 0);
+        }
+    }
 }
