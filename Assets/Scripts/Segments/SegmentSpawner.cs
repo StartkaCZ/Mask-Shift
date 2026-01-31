@@ -5,6 +5,7 @@ public class SegmentSpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Transform          _player;
+    [SerializeField] MaskController     _maskController;
     [SerializeField] GameObject         _segmentPrefab;
 
     [Tooltip("Put your pre-placed segments under this transform (recommended).")]
@@ -52,37 +53,6 @@ public class SegmentSpawner : MonoBehaviour
         else
             SpawnInitialSegments();
     }
-
-
-    void Update()
-    {
-        int playerIndex = Mathf.FloorToInt(_player.position.z / _segmentLength);
-
-        // Ensure enough segments ahead
-        while (_nextSegmentIndex <= playerIndex + _segmentsAhead)
-        {
-            SpawnAtIndex(_nextSegmentIndex);
-            _nextSegmentIndex++;
-        }
-
-        // Despawn segments too far behind
-        while (_spawned.Count > 0)
-        {
-            var oldest = _spawned.Peek();
-            var idx = oldest.GetComponent<SegmentIndex>().Index;
-
-            if (idx < playerIndex - _segmentsBehind)
-            {
-                Destroy(_spawned.Dequeue());
-            }
-            else
-            {
-                break;
-            }
-        }
-    }
-
-
 
     private void BootstrapExistingSegments()
     {
@@ -139,6 +109,35 @@ public class SegmentSpawner : MonoBehaviour
     }
 
 
+    void Update()
+    {
+        int playerIndex = Mathf.FloorToInt(_player.position.z / _segmentLength);
+
+        // Ensure enough segments ahead
+        while (_nextSegmentIndex <= playerIndex + _segmentsAhead)
+        {
+            SpawnAtIndex(_nextSegmentIndex);
+            _nextSegmentIndex++;
+        }
+
+        // Despawn segments too far behind
+        while (_spawned.Count > 0)
+        {
+            var oldest = _spawned.Peek();
+            var idx = oldest.GetComponent<SegmentIndex>().Index;
+
+            if (idx < playerIndex - _segmentsBehind)
+            {
+                Destroy(_spawned.Dequeue());
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+
     private void SpawnAtIndex(int index)
     {
         float z = index * _segmentLength;
@@ -149,13 +148,33 @@ public class SegmentSpawner : MonoBehaviour
         if (_populator != null)
         {
             float originZ = index * _segmentLength;
-            _populator.Populate(seg.transform, originZ);
+
+            if (Random.Range(0.0f, 1.0f) < 0.75)
+                _populator.Populate(seg.transform, originZ, GetGroupFromMask());
+            else
+                _populator.Populate(seg.transform, originZ, MaskPatternGroup.Neutral);
         }
 
-        var segIdx = seg.GetComponent<SegmentIndex>();
-        if (segIdx == null) segIdx = seg.AddComponent<SegmentIndex>();
-        segIdx.Index = index;
+        if (seg.TryGetComponent<SegmentIndex>(out var segIdx))
+            segIdx.Index = index;
 
         _spawned.Enqueue(seg);
     }
+
+
+    private MaskPatternGroup GetGroupFromMask()
+    {
+        if (_maskController == null) return MaskPatternGroup.Neutral;
+
+        
+        return _maskController.CurrentMask switch
+        {
+            MaskType.Stone => MaskPatternGroup.Stone,
+            MaskType.Feather => MaskPatternGroup.Feather,
+            MaskType.Mirror => MaskPatternGroup.Mirror,
+            MaskType.Oracle => MaskPatternGroup.Neutral,
+            _ => MaskPatternGroup.Neutral
+        };
+    }
+
 }
