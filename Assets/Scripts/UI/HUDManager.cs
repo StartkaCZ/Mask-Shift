@@ -35,7 +35,9 @@ public class HUDManager : MonoBehaviour
 
     public void ShowGameOver(bool show)
     {
-        _gameOverText.enabled = show;
-        _restartInstructionsText.enabled = show;
+        if (_gameOverText != null)
+            _gameOverText.enabled = show;
+        if (_restartInstructionsText != null)
+            _restartInstructionsText.enabled = show;
     }
 }
