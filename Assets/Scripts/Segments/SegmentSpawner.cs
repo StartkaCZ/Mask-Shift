@@ -128,7 +128,8 @@ public class SegmentSpawner : MonoBehaviour
 
             if (idx < playerIndex - _segmentsBehind)
             {
-                Destroy(_spawned.Dequeue());
+                _spawned.Dequeue().SetActive(false);
+                //Destroy(_spawned.Dequeue());
             }
             else
             {

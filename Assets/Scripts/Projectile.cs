@@ -41,8 +41,9 @@ public class Projectile : MonoBehaviour
         if (collision == null || collision.collider == null) return;
 
         if (IsOwnerCollision(collision.collider.transform)) return;
-        print(collision.collider.name);
-        Destroy(gameObject);
+
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
 
@@ -51,9 +52,9 @@ public class Projectile : MonoBehaviour
         if (other == null) return;
 
         if (IsOwnerCollision(other.transform)) return;
-        print(other.name);
-
-        Destroy(gameObject);
+        
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
 

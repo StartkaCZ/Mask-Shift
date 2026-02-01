@@ -75,6 +75,7 @@ public class PlayerCollisionHandler : MonoBehaviour
         var collider = gameObject.GetComponent<Collider>();
         if (collider != null) collider.enabled = false;
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 }
