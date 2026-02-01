@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatternSO
   group: 1
   lane0: ..G.......
-  lane1: .G..C..G..
+  lane1: .G..C..G.C
   lane2: ..G.......
   legend: O obstacle | C coin | V shooting trap | G hole | . empty floor
   obstaclePrefab: {fileID: 4861911103228178003, guid: 90ce129924ea14f46985e25e8239ea67, type: 3}

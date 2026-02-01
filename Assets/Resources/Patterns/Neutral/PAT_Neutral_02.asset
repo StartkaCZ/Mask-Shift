@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PAT_Neutral_02
   m_EditorClassIdentifier: Assembly-CSharp::PatternSO
   group: 3
-  lane0: .O....G...
+  lane0: .O....G.C.
   lane1: ..G..O....
   lane2: ....V..G..
   legend: O obstacle | C coin | V shooting trap | G hole | . empty floor
