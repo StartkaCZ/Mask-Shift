@@ -172,7 +172,6 @@ public class SegmentSpawner : MonoBehaviour
             MaskType.Stone => MaskPatternGroup.Stone,
             MaskType.Feather => MaskPatternGroup.Feather,
             MaskType.Mirror => MaskPatternGroup.Mirror,
-            MaskType.Oracle => MaskPatternGroup.Neutral,
             _ => MaskPatternGroup.Neutral
         };
     }

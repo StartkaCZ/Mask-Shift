@@ -6,7 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    const string HIGHSCORE_KEY = "HighScore";
+    const int DEFAULT_HIGHSCORE = 150;
+
     public int Score { get; private set; }
+    public int HighScore { get; private set; }
     public bool IsGameOver { get; private set; }
 
 
@@ -17,9 +21,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
         Time.timeScale = 1f;
+
+        HighScore = PlayerPrefs.GetInt(HIGHSCORE_KEY, DEFAULT_HIGHSCORE);
     }
 
 
@@ -37,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int amount)
     {
+        if (IsGameOver) return;
+
         Score += amount;
         HUDManager.Instance?.SetScore(Score);
     }
@@ -48,15 +57,34 @@ public class GameManager : MonoBehaviour
         HUDManager.Instance?.SetScore(Score);
     }
 
+    public void ResetRunState()
+    {
+        IsGameOver = false;
+        Score = 0;
+        Time.timeScale = 1f;
+
+        HUDManager.Instance?.SetScore(Score);
+        HUDManager.Instance?.SetHighScore(HighScore);
+        HUDManager.Instance?.ShowGameOver(false);
+    }
+
 
     public void GameOver()
     {
         if (IsGameOver) return;
 
         IsGameOver = true;
+
+        if (Score > HighScore)
+        {
+            HighScore = Score;
+            PlayerPrefs.SetInt(HIGHSCORE_KEY, HighScore);
+            PlayerPrefs.Save();
+        }
+
+        HUDManager.Instance?.SetHighScore(HighScore);
         HUDManager.Instance?.ShowGameOver(true);
 
-        // Freeze the run instantly (safe and simple)
         Time.timeScale = 0f;
     }
 
@@ -65,9 +93,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         IsGameOver = false;
-        ResetScore();
-
-        // Reload your main scene (ensure the name matches)
         SceneManager.LoadScene("Game");
     }
 }

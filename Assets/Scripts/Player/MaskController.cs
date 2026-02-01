@@ -6,7 +6,6 @@ public enum MaskType
     Stone,
     Feather,
     Mirror,
-    Oracle
 }
 
 
@@ -31,5 +30,4 @@ public class MaskController : MonoBehaviour
     public void OnMaskStone(InputValue value) { if (value.isPressed) SetMask(MaskType.Stone); }
     public void OnMaskFeather(InputValue value) { if (value.isPressed) SetMask(MaskType.Feather); }
     public void OnMaskMirror(InputValue value) { if (value.isPressed) SetMask(MaskType.Mirror); }
-    public void OnMaskOracle(InputValue value) { if (value.isPressed) SetMask(MaskType.Oracle); }
 }

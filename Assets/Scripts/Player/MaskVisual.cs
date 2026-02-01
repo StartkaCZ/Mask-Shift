@@ -51,7 +51,6 @@ public class MaskVisual : MonoBehaviour
             MaskType.Stone => _stoneMat,
             MaskType.Feather => _featherMat,
             MaskType.Mirror => _mirrorMat,
-            MaskType.Oracle => _oracleMat,
             _ => _stoneMat
         };
 
