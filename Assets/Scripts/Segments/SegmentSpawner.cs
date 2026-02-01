@@ -171,7 +171,6 @@ public class SegmentSpawner : MonoBehaviour
         return _maskController.CurrentMask switch
         {
             MaskType.Stone => MaskPatternGroup.Stone,
-            MaskType.Feather => MaskPatternGroup.Feather,
             MaskType.Mirror => MaskPatternGroup.Mirror,
             _ => MaskPatternGroup.Neutral
         };

@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public enum MaskType
 {
     Stone,
-    Feather,
     Mirror,
 }
 
@@ -20,14 +19,20 @@ public class MaskController : MonoBehaviour
 
     public void SetMask(MaskType mask)
     {
-        if (_currentMask == mask) return;
+        if (_currentMask == mask)
+        {
+            if (mask == MaskType.Mirror)
+                _currentMask = MaskType.Stone;
+            else
+                _currentMask = MaskType.Mirror;
+        }
+        else
+            _currentMask = mask;
 
-        _currentMask = mask;
         OnMaskChanged?.Invoke(_currentMask);
     }
 
     // Input System (Send Messages) hooks
     public void OnMaskStone(InputValue value) { if (value.isPressed) SetMask(MaskType.Stone); }
-    public void OnMaskFeather(InputValue value) { if (value.isPressed) SetMask(MaskType.Feather); }
     public void OnMaskMirror(InputValue value) { if (value.isPressed) SetMask(MaskType.Mirror); }
 }

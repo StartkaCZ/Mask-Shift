@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEngine;
-
+/*
 [CustomEditor(typeof(LaneGrid))]
 public class LaneGridEditor : Editor
 {
@@ -29,3 +29,4 @@ public class LaneGridEditor : Editor
         }
     }
 }
+*/

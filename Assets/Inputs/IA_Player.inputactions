@@ -16,15 +16,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "03258ba2-a7a7-4733-bf53-716cddd7bb3d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "MaskStone",
                     "type": "Button",
                     "id": "b4549fa1-6aa4-45bd-b58a-46e1cda8a4d7",
@@ -34,27 +25,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MaskFeather",
-                    "type": "Button",
-                    "id": "aa6dbef0-2fc5-405c-a8e9-00aae1dd859a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "MaskMirror",
                     "type": "Button",
                     "id": "d53ce6c6-9f89-40e8-8133-0c196938f7c9",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MaskOracle",
-                    "type": "Button",
-                    "id": "e5f3b207-36dc-46e8-99c5-d6227e903185",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -240,30 +213,8 @@
                 },
                 {
                     "name": "",
-                    "id": "0bf861a9-4fd6-4aaf-9829-9c948e1eb3ae",
-                    "path": "<Keyboard>/space",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "227dcd98-3eb4-4554-94da-1d9d3269b4cd",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "399807d4-b90d-44c8-a9a8-4dee0856a548",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -273,19 +224,19 @@
                 },
                 {
                     "name": "",
-                    "id": "0e9e365d-e217-412f-8f8b-36d1e81c0d15",
-                    "path": "<Keyboard>/2",
+                    "id": "6fc3dff2-6ee9-4b1b-ae8a-657d68ad624e",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MaskFeather",
+                    "action": "MaskStone",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "f7711d31-b14e-47b7-9bda-2a7fbb3c525d",
-                    "path": "<Keyboard>/3",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -295,12 +246,12 @@
                 },
                 {
                     "name": "",
-                    "id": "86c5adae-2f1a-4831-866a-3cd7c3462ae0",
-                    "path": "<Keyboard>/4",
+                    "id": "ad6f2e91-dc04-4b99-91b4-789800e5e4a6",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MaskOracle",
+                    "action": "MaskMirror",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

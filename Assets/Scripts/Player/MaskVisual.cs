@@ -49,7 +49,6 @@ public class MaskVisual : MonoBehaviour
         Material m = mask switch
         {
             MaskType.Stone => _stoneMat,
-            MaskType.Feather => _featherMat,
             MaskType.Mirror => _mirrorMat,
             _ => _stoneMat
         };

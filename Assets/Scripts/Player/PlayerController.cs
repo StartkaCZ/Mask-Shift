@@ -5,20 +5,16 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CharacterController))]
 public class RunnerPlayerController : MonoBehaviour
 {
-    [Header("Mask Effects")]
-    [SerializeField] float  _featherHoverSpeed = 20f;
-
     [Header("Lane Settings")]
     [SerializeField] int    _lanes = 3;
     [SerializeField] float  _laneStep = 2.1f;            // MUST match LaneGrid x-step
     [SerializeField] float  _laneSwitchSpeed = 12f;      // units/sec
 
-    [Header("Jump Settings")]
-    [SerializeField] float  _jumpHeight = 2.2f;
+    [Header("Fall Settings")]
     [SerializeField] float  _gravity = -25f;
 
     [Header("Forward (optional for now)")]
-    [SerializeField] float  _forwardSpeed = 10f;          // set >0 later for runner feel
+    [SerializeField] float  _forwardSpeed = 15f;          // set >0 later for runner feel
 
     CharacterController     _controller;
     MaskController          _mask;
@@ -52,18 +48,15 @@ public class RunnerPlayerController : MonoBehaviour
                                        _laneSwitchSpeed * Time.deltaTime);
         float deltaX = newX - currentX;
 
-        // Gravity and jumping
+        // Gravity
         if (_controller.isGrounded && _verticalVelocity < 0f)
             _verticalVelocity = -2f; // keeps grounded reliably
 
         _verticalVelocity += _gravity * Time.deltaTime;
 
-        float speed = _mask.CurrentMask == MaskType.Feather ? 
-                            _featherHoverSpeed : _forwardSpeed;
-
         Vector3 move = new Vector3(deltaX, 
-                                   _verticalVelocity * Time.deltaTime, 
-                                   speed * Time.deltaTime);
+                                   _verticalVelocity * Time.deltaTime,
+                                   _forwardSpeed * Time.deltaTime);
         _controller.Move(move);
 
         // Reset "held" state when stick/keys return to neutral
@@ -89,24 +82,6 @@ public class RunnerPlayerController : MonoBehaviour
         {
             _currentLane = Mathf.Max(_currentLane - 1, 0);
             _moveHeld = true;
-        }
-    }
-
-
-    // Called automatically by PlayerInput (Send Messages) for the "Jump" action
-    public void OnJump(InputValue value)
-    {
-        if (_mask != null && 
-            (_mask.CurrentMask == MaskType.Stone || 
-             _mask.CurrentMask == MaskType.Feather))
-            return;
-
-        if (!value.isPressed) return;
-
-        if (_controller.isGrounded)
-        {
-            // v = sqrt(2 * jumpHeight * -gravity)
-            _verticalVelocity = Mathf.Sqrt(2f * _jumpHeight * -_gravity);
         }
     }
 }
